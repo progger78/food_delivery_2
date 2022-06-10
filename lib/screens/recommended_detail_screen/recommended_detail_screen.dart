@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_2/controllers/recommended_product_controller.dart';
+import 'package:get/get.dart';
 import '/utils/dimensions.dart';
 import '/widgets/grey_box_with_buttns.dart';
 import '../../utils/configurations.dart';
 
 import '/widgets/widgets.dart';
-import 'components/popular_detail_body.dart';
+import 'components/recommended_detail_body.dart';
 
-class PopularDetailScreen extends StatelessWidget {
-  static const routeName = '/popular-detail-screen';
-  const PopularDetailScreen({Key? key}) : super(key: key);
-
+class RecommendedDetailScreen extends StatelessWidget {
+  const RecommendedDetailScreen({Key? key, required this.pageId})
+      : super(key: key);
+  final int pageId;
   @override
   Widget build(BuildContext context) {
+    var recProduct =
+        Get.find<RecommendedProductController>().recommendedProductList[pageId];
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: const PoplrDetailBody(),
+      body: RecommendedDetailBody(recProduct: recProduct),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -31,10 +36,15 @@ class PopularDetailScreen extends StatelessWidget {
                 AppIcon(
                   icon: Icons.remove,
                   press: () {},
+                  color: Colors.white,
                   backgroundColor: AppColors.mainColor,
                 ),
                 // ignore: prefer_interpolation_to_compose_strings
-                AppBigText(text: '\$20.00 ' ' X ' + ' 0 ', color: Colors.black87, size: Dimensions.font26,),
+                AppBigText(
+                  text: '\$${recProduct.price} ' ' X ' ' 0 ',
+                  color: Colors.black87,
+                  size: Dimensions.font26,
+                ),
                 AppIcon(
                   icon: Icons.add,
                   press: () {},
@@ -44,7 +54,10 @@ class PopularDetailScreen extends StatelessWidget {
               ],
             ),
           ),
-          const GreyBoxWithButns(isLikeButn: true)
+          GreyBoxWithButns(
+            isLikeButn: true,
+            product: recProduct,
+          )
         ],
       ),
     );

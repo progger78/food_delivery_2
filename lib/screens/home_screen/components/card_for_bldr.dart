@@ -9,12 +9,16 @@ import '../../../widgets/widgets.dart';
 class CardForPageBldr extends StatelessWidget {
   CardForPageBldr({
     this.isListViewBldr = false,
-    Key? key, required this.popularProductModel, required this.popularProductCtrl,
+    Key? key,
+    required this.popularProductModel,
+    required this.popularProductCtrl,
+    required this.index,
   }) : super(key: key);
 
   bool? isListViewBldr;
-   final ProductModel popularProductModel;
-   final PopularProductController popularProductCtrl;
+  final ProductModel popularProductModel;
+  final PopularProductController popularProductCtrl;
+  final int index;
 
   @override
   Widget build(BuildContext context) {

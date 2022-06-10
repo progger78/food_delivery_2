@@ -8,6 +8,8 @@ class AppConstants{
   static const String recommendedProductUrl = '/api/v1/products/recommended';
 
   static const String token= 'MyToken';
+  static const String uploadUrl = '/uploads/';
+
 
 
 }

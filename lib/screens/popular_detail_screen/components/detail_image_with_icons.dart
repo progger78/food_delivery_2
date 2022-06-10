@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_2/utils/app_constants.dart';
 
 import '/utils/dimensions.dart';
 import '/widgets/widgets.dart';
 
 class DetailImageWithIcons extends StatelessWidget {
   const DetailImageWithIcons({
-    Key? key,
+    Key? key, required this.product,
   }) : super(key: key);
+  final dynamic product;
 
   @override
   Widget build(BuildContext context) {
+   
+    
+    
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height * 0.45,
       width: size.width,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
             colors: [Colors.black, Colors.white],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight),
         image: DecorationImage(
           image: NetworkImage(
-              'https://d32ydbgkw6ghe6.cloudfront.net/production/uploads/cover_images/cddaa57b04b0f04f60aa0532929cbf800f24/i1080x475.jpg'),
+              AppConstants.baseUrl+AppConstants.uploadUrl+product.img),
           fit: BoxFit.cover,
         ),
       ),
       child: Container(
+        
         height: 20,
         margin:
             EdgeInsets.symmetric(horizontal: 40, vertical: Dimensions.height45),

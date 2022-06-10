@@ -7,8 +7,10 @@ import 'widgets.dart';
 class GreyBoxWithButns extends StatelessWidget {
   const GreyBoxWithButns({
     Key? key,
-    this.isLikeButn = false,
+    this.isLikeButn = false, required this.product, this.recProduct,
   }) : super(key: key);
+    final dynamic product;
+    final dynamic recProduct;
 
   final bool isLikeButn;
   @override
@@ -48,12 +50,13 @@ class GreyBoxWithButns extends StatelessWidget {
                   )
                 : ResponsiveButn(
                     isCounter: true,
-                    price: 0,
                     press: () {},
+                    productAmount: 0,
                   ),
             const SizedBox(width: 15),
             Expanded(
               child: ResponsiveButn(
+                price: product.price!,
                 press: () {},
                 color: AppColors.mainColor,
               ),

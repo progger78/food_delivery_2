@@ -7,16 +7,17 @@ import '../../../widgets/widgets.dart';
 
 class MainDetailCard extends StatelessWidget {
   const MainDetailCard({
-    Key? key,
+    Key? key, required this.product,
 
     
   }) : super(key: key);
 
-  
+  final dynamic product;
   
 
   @override
   Widget build(BuildContext context) {
+    
     var gottenStars = 4;
     Size size = MediaQuery.of(context).size;
     return Positioned(
@@ -39,7 +40,7 @@ class MainDetailCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppBigText(
-              text: 'Dreamy Salmon',
+              text: product.name,
               color: Colors.black,
               size: Dimensions.font30,
             ),
@@ -97,11 +98,11 @@ class MainDetailCard extends StatelessWidget {
             SizedBox(
               height: Dimensions.height25,
             ),
-            const Expanded(
+            Expanded(
                child: SingleChildScrollView(
                  child: ExpandableText(
                       text:
-                          'Popular to serve as a main dish, Salmon provides a tender, flaky-textured meat with a mild to rich flavor, depending on the species. It is a fish that is rich in omega-3 fatty acids, which help to reduce LDL (bad) cholesterol.',
+                          product.description
                     ),
                ),
              ),

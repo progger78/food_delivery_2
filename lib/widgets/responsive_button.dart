@@ -17,7 +17,7 @@ class ResponsiveButn extends StatelessWidget {
   final double width;
   final VoidCallback press;
   final int productAmount;
-  final double price;
+  final int price;
   final Color color;
 
   @override
