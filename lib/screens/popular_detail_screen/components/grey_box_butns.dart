@@ -10,15 +10,15 @@ class GreyBoxButns extends StatelessWidget {
 
   final dynamic product;
   final dynamic recProduct;
+  
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 0,
-      child: GreyBoxWithButns(
-        product: product,
-        recProduct: recProduct
-      ),
+      child: GreyBoxWithButns(product: product)
+      
+     
     );
   }
 }

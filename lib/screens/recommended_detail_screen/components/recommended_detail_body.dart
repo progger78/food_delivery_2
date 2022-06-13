@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_2/utils/app_constants.dart';
+import 'package:get/get.dart';
+import '../../../routes/route_helper.dart';
 import '../../../utils/configurations.dart';
 import '/utils/dimensions.dart';
 import '/widgets/expandable_text.dart';
@@ -34,13 +36,15 @@ class RecommendedDetailBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 AppIcon(
+                  size: Dimensions.height25,
                   icon: Icons.clear,
                   press: () {
-                    Navigator.of(context).pop();
+                    Get.toNamed(RouteHelper.initial);
                   },
                   color: Colors.black,
                 ),
                 AppIcon(
+                     size: Dimensions.height25,
                   icon: Icons.shopping_cart,
                   press: () {},
                 )
@@ -48,10 +52,10 @@ class RecommendedDetailBody extends StatelessWidget {
             ),
           ),
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(20),
+            preferredSize: Size.fromHeight(Dimensions.height20),
             child: Container(
               alignment: Alignment.center,
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              padding:  EdgeInsets.only(top: Dimensions.height5, bottom: Dimensions.height5),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(

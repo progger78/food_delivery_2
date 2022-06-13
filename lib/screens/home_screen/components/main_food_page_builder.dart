@@ -47,6 +47,7 @@ class _MainFoodPageBodyState extends State<MainFoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Column(children: [
       GetBuilder<PopularProductController>(builder: (popularProduct) {
         return Container(
@@ -70,7 +71,7 @@ class _MainFoodPageBodyState extends State<MainFoodPageBody> {
           position: _currentPageValue,
           decorator: DotsDecorator(
             activeColor: AppColors.mainColor,
-            size: const Size.square(11.0),
+            size: Size.square(Dimensions.height10 + 1),
             activeSize: Size(Dimensions.width20, Dimensions.height10 + 1),
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
@@ -129,7 +130,8 @@ class _MainFoodPageBodyState extends State<MainFoodPageBody> {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: NetworkImage(
-                                        '${AppConstants.baseUrl + AppConstants.uploadUrl}${recommendedProduct.recommendedProductList[index].img}'),
+                                      '${AppConstants.baseUrl + AppConstants.uploadUrl}${recommendedProduct.recommendedProductList[index].img}',
+                                    ),
                                     fit: BoxFit.cover),
                                 borderRadius: BorderRadius.circular(
                                   Dimensions.radius15,
@@ -240,13 +242,13 @@ class _MainFoodPageBodyState extends State<MainFoodPageBody> {
       child: Stack(
         children: [
           ImageForBldr(
-              popularProductModel: popularProductModel,
-              index: index,
-              ),
+            popularProductModel: popularProductModel,
+            index: index,
+          ),
           CardForPageBldr(
               index: index,
               popularProductModel: popularProductModel,
-              popularProductCtrl: popularProductCtrl)
+              )
         ],
       ),
     );

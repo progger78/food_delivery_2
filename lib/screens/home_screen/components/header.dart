@@ -39,7 +39,7 @@ class Header extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               width: Dimensions.width45,
-              height: Dimensions.height45,
+              height: Dimensions.height45 ,
               decoration: BoxDecoration(
                 color: AppColors.mainColor,
                 borderRadius: BorderRadius.circular(Dimensions.radius15),

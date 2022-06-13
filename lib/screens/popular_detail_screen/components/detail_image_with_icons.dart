@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_2/routes/route_helper.dart';
 import 'package:food_delivery_2/utils/app_constants.dart';
+import 'package:get/get.dart';
 
 import '/utils/dimensions.dart';
 import '/widgets/widgets.dart';
@@ -42,7 +44,7 @@ class DetailImageWithIcons extends StatelessWidget {
             AppIcon(
                 icon: Icons.arrow_back,
                 press: () {
-                  Navigator.of(context).pop();
+                  Get.toNamed(RouteHelper.initial);
                 }),
             AppIcon(icon: Icons.shopping_cart, press: () {})
           ],

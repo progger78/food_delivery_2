@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_2/utils/dimensions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppSmallText extends StatelessWidget {
@@ -7,13 +8,13 @@ class AppSmallText extends StatelessWidget {
       this.textOverflow,
       this.color = const Color.fromARGB(255, 156, 156, 156),
       required this.text,
-      this.size = 16,
+      this.size,
       this.height = 1.2})
       : super(key: key);
 
   Color? color;
   final String text;
-  double size;
+  double? size;
   TextOverflow? textOverflow;
   double height;
 
@@ -29,7 +30,7 @@ class AppSmallText extends StatelessWidget {
           height: height,
           fontWeight: FontWeight.w500,
           color: color,
-          fontSize: size,
+          fontSize: Dimensions.font16,
           
         ),
       ),

@@ -1,22 +1,23 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery_2/utils/dimensions.dart';
 
 import 'app_small_text.dart';
 
 class CardIconText extends StatelessWidget {
-  CardIconText({
+   CardIconText({
     Key? key,
     required this.icon,
     required this.color,
-    this.size = 30,
+    this.size,
     required this.text,
   }) : super(key: key);
 
   final IconData icon;
   final Color color;
   final String text;
-  double size;
+  double? size;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class CardIconText extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: size,
+          size: Dimensions.height25,
           color: color,
         ),
         SizedBox(

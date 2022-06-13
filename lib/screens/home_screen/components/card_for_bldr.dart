@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_2/utils/dimensions.dart';
 
-import '../../../controllers/popular_product_controller.dart';
 import '../../../models/products_model.dart';
 import '../../../utils/configurations.dart';
 import '../../../widgets/widgets.dart';
@@ -11,13 +10,11 @@ class CardForPageBldr extends StatelessWidget {
     this.isListViewBldr = false,
     Key? key,
     required this.popularProductModel,
-    required this.popularProductCtrl,
     required this.index,
   }) : super(key: key);
 
   bool? isListViewBldr;
   final ProductModel popularProductModel;
-  final PopularProductController popularProductCtrl;
   final int index;
 
   @override
@@ -61,7 +58,7 @@ class CardForPageBldr extends StatelessWidget {
                         5,
                         (index) => Icon(
                           Icons.star_sharp,
-                          color: AppColors.mainColor,
+                          color:  index < popularProductModel.stars! ? AppColors.mainColor : Colors.grey,
                         ),
                       ),
                     ),
@@ -69,7 +66,7 @@ class CardForPageBldr extends StatelessWidget {
                       width: Dimensions.width5,
                     ),
                     AppSmallText(
-                      text: '5.0',
+                      text: '${popularProductModel.stars?.toStringAsFixed(1)}',
                     ),
                     SizedBox(
                       width: Dimensions.width20,

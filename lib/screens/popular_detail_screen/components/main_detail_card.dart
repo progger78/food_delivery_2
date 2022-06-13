@@ -18,7 +18,7 @@ class MainDetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    var gottenStars = 4;
+    // var gottenStars = 4;
     Size size = MediaQuery.of(context).size;
     return Positioned(
       bottom: 0,
@@ -28,7 +28,7 @@ class MainDetailCard extends StatelessWidget {
             top: Dimensions.height25,
             right: Dimensions.width25),
         width: size.width,
-        height: size.height * 0.65,
+        height: size.height * 0.5,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -54,7 +54,7 @@ class MainDetailCard extends StatelessWidget {
                       5,
                       (index) => Icon(
                         Icons.star,
-                        color: index < gottenStars
+                        color: index < product.stars
                             ? AppColors.mainColor
                             : Colors.grey,
                       ),
@@ -62,7 +62,7 @@ class MainDetailCard extends StatelessWidget {
                   ),
                   SizedBox(width: Dimensions.width5),
                   AppSmallText(
-                    text: '(${gottenStars.toStringAsFixed(1)})',
+                    text: '(${product.stars.toStringAsFixed(1)})',
                   ),
                   SizedBox(width: Dimensions.width25),
                   AppSmallText(text: '1245 comments')
